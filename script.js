@@ -1,64 +1,48 @@
-document.addEventListener('DOMContentLoaded', (event) => {
+document.addEventListener('DOMContentLoaded', function() {
     
-    // Función para actualizar el gráfico de Flexibilidad del Estilo
-    function updateFlexibilidadChart(valor) {
-        const barra = document.getElementById('flexibilidad-barra');
-        if (barra) {
-            const alturaPorcentual = Math.min(100, Math.max(0, (valor / 30) * 100));
-            barra.style.height = `${alturaPorcentual}%`;
-        }
-    }
-
-    // Función para actualizar el gráfico de Eficacia del Estilo
-    function updateEficaciaChart(valor) {
-        const barra = document.getElementById('eficacia-barra');
-        if (barra) {
-            const valorBase = 20;
-            const rangoTotal = 60;
-            const alturaPorcentual = Math.min(100, Math.max(0, ((valor - valorBase) / rangoTotal) * 100));
-            barra.style.height = `${alturaPorcentual}%`;
-        }
-    }
-    
-    // Función para inicializar los valores desde el DOM
-    function initializeFromDOM() {
-        // Actualizar gráficos
-        const flexValorSpan = document.getElementById('flexibilidad-valor');
-        if(flexValorSpan) {
-            const flexValor = parseInt(flexValorSpan.textContent, 10);
-            if (!isNaN(flexValor)) {
-                updateFlexibilidadChart(flexValor);
-            }
-        }
+    // Función para actualizar una barra de gráfico.
+    // Espera un poco para dar tiempo a que AppSheet reemplace las etiquetas.
+    function updateBar(barId, valueId, minValue, maxValue) {
+        const bar = document.getElementById(barId);
+        const valueSpan = document.getElementById(valueId);
         
-        const eficValorSpan = document.getElementById('eficacia-valor');
-        if(eficValorSpan) {
-            const eficValor = parseInt(eficValorSpan.textContent, 10);
-             if (!isNaN(eficValor)) {
-                updateEficaciaChart(eficValor);
-            }
-        }
-
-        // Ocultar ceros en las cuadrículas
-        const ids = [
-            'prim-e1', 'prim-e2', 'prim-e3', 'prim-e4',
-            'sec-e1', 'sec-e2', 'sec-e3', 'sec-e4',
-            'des-e1', 'des-e2', 'des-e3', 'des-e4',
-            'efic-e1', 'efic-e2', 'efic-e3', 'efic-e4'
-        ];
-
-        ids.forEach(id => {
-            const elemento = document.getElementById(id);
-            if (elemento) {
-                const valorNumerico = parseInt(elemento.textContent, 10);
-                if (!isNaN(valorNumerico) && valorNumerico === 0) {
-                    elemento.textContent = ''; // Limpia el contenido si es 0
+        if (bar && valueSpan) {
+            setTimeout(() => {
+                const textValue = valueSpan.textContent.trim();
+                let value = parseFloat(textValue);
+                
+                if (!isNaN(value)) {
+                    // Asegurarse que el valor esté dentro del rango
+                    value = Math.max(minValue, Math.min(maxValue, value));
+                    
+                    const range = maxValue - minValue;
+                    if (range > 0) {
+                        const percentage = ((value - minValue) / range) * 100;
+                        bar.style.height = percentage + '%';
+                    }
                 }
-            }
-        });
+            }, 200); // Un pequeño retraso para asegurar que los datos de AppSheet se carguen
+        }
     }
 
-    // Se espera un breve momento para que AppSheet (o cualquier otro sistema) reemplace las etiquetas.
-    // Si los datos están presentes al cargar, se ejecutará inmediatamente.
-    setTimeout(initializeFromDOM, 100);
+    // Actualizar los dos gráficos
+    updateBar('flexibilidad-barra', 'flexibilidad-valor', 0, 30);
+    updateBar('eficacia-barra', 'eficacia-valor', 20, 80);
+
+    // Función para ocultar los valores de las cuadrículas si son '0'
+    function hideZeroValues() {
+        const valueSpans = document.querySelectorAll('.grid-cell-value');
+        
+        setTimeout(() => {
+            valueSpans.forEach(span => {
+                if (span.textContent.trim() === '0') {
+                    // Oculta el número pero mantiene el espacio para no desalinear
+                    span.style.visibility = 'hidden'; 
+                }
+            });
+        }, 200);
+    }
+
+    hideZeroValues();
+
 });
