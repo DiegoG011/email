@@ -13,7 +13,7 @@ body {
 /* Page Container - TAMAÑO OFICIO */
 .main-container {
     background-color: #ffffff;
-    padding: 2.5cm;
+    padding: 2cm; /* Reducido para más espacio de contenido */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     
     /* Dimensiones para tamaño Oficio (21.6cm x 33cm) */
@@ -32,24 +32,24 @@ body {
 /* Header */
 header {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem; /* Reducido */
     border-bottom: 2px solid var(--primary-color);
-    padding-bottom: 1.5rem;
+    padding-bottom: 1rem; /* Reducido */
 }
 
 .logo {
-    max-width: 180px;
+    max-width: 140px; /* Reducido */
     margin-bottom: 1rem;
 }
 
 .main-title {
-    font-size: 1.8rem;
+    font-size: 1.6rem; /* Reducido */
     color: var(--primary-color);
     margin: 0.5rem 0;
 }
 
 .subtitle {
-    font-size: 1.4rem;
+    font-size: 1.3rem; /* Reducido */
     color: #555;
     font-weight: 400;
 }
@@ -58,10 +58,10 @@ header {
 .participant-info {
     display: flex;
     justify-content: space-between;
-    padding: 1rem;
+    padding: 0.8rem; /* Reducido */
     background-color: var(--gray-color);
     border-radius: 8px;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem; /* Reducido */
     font-size: 1rem;
 }
 
@@ -69,22 +69,28 @@ header {
     font-weight: 700;
 }
 
+/* Propiedad para controlar saltos de página en PDF */
+section {
+    break-inside: avoid;
+}
+
+
 /* Chart Section */
 .chart-section {
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.5rem; /* Reducido */
 }
 
 .section-title {
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1.1rem; /* Reducido */
     color: var(--primary-color);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem; /* Reducido */
     font-weight: 700;
 }
 
 .chart-wrapper {
     display: flex;
-    height: 300px;
+    height: 280px; /* Reducido */
     margin: 0 auto;
     max-width: 450px;
 }
@@ -165,7 +171,7 @@ header {
 
 /* Styles Section */
 .styles-section {
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.5rem; /* Reducido */
 }
 
 .styles-grid-container {
@@ -219,7 +225,7 @@ header {
 
 /* Eficacia Grid Section */
 .eficacia-grid-section {
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.5rem; /* Reducido */
 }
 
 .efficacy-grid {
@@ -229,7 +235,7 @@ header {
 
 /* Clarification Section */
 .clarification-section {
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.5rem; /* Reducido */
     padding: 1.5rem;
     background-color: var(--gray-color);
     border-radius: 8px;
@@ -252,7 +258,7 @@ footer {
     color: #777;
     border-top: 1px solid #eee;
     padding-top: 1.5rem;
-    margin-top: 2rem;
+    margin-top: 1.5rem; /* Reducido */
 }
 
 footer p {
