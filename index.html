@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test de Liderazgo - Resultados</title>
+    <!-- CAMBIO: Se usa una URL absoluta para el archivo CSS alojado en GitHub -->
+    <link rel="stylesheet" href="https://TU_USUARIO.github.io/TU_REPOSITORIO/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="main-container">
+        
+        <!-- Encabezado -->
+        <header>
+            <img src="https://www.appsheet.com:443/fsimage.png?appid=24f5b673-10fe-4b94-b547-deaec7673db5&datasource=google&filename=DocId%3D1k5SEfxg4mlQfM0wotX1GR1Zzv9LhqhcC&signature=52b912fd71327a0a3cd5487e5a59d1532557f4dcd61fa0442b59e12ebaf55613&tableprovider=google&userid=1001386625" alt="Logo CLC" class="logo"
+            onerror="this.onerror=null; this.src='https://placehold.co/150x60/00427F/FFFFFF?text=Logo+CLC';">
+            <h1 class="main-title">Test de autopercepción del estilo y la eficacia del liderazgo</h1>
+            <h2 class="subtitle">Resultados</h2>
+        </header>
+
+        <!-- Información del participante -->
+        <div class="participant-info">
+            <div>
+                <span class="font-bold">Nombre:</span>
+                <span id="nombre-participante"><<[EmailUsuarios].[NombreUsuario]>></span>
+            </div>
+            <div>
+                <span class="font-bold">Fecha:</span>
+                <span id="current-date"><<NOW()>></span>
+            </div>
+        </div>
+
+        <!-- Sección de Flexibilidad del Estilo -->
+        <section class="chart-section">
+            <h3 class="section-title">Gráfica de la flexibilidad del estilo</h3>
+            <div class="chart-wrapper">
+                 <!-- Eje Y -->
+                <div class="y-axis">
+                    <div class="axis-label-top">Alta<br>30</div>
+                    <div class="axis-label-bottom">Baja<br>0</div>
+                </div>
+                 <!-- Área del Gráfico -->
+                <div class="chart-area">
+                    <!-- Franja de Norma -->
+                    <div class="norm-band" style="height: 13.33%; bottom: 53.33%;"></div>
+                     <!-- Barra de datos -->
+                    <div id="flexibilidad-barra" class="data-bar">
+                        <span id="flexibilidad-valor" class="bar-value"><<[EmailUsuarios].[TotalFlexibilidad-inf]>></span>
+                    </div>
+                </div>
+            </div>
+            <div class="legend">
+                <div class="legend-color-box"></div>
+                <span class="legend-text">Norma (16-20)</span>
+            </div>
+        </section>
+
+        <!-- Sección de Estilos -->
+        <section class="styles-section">
+            <h3 class="section-title">Estilos</h3>
+            <div class="styles-grid-container">
+                <!-- Primario -->
+                <div class="style-category">
+                    <h4 class="category-title">Primario</h4>
+                    <div class="grid-2x2">
+                        <div class="grid-cell"><span id="prim-e1" class="grid-cell-value"><<[EmailUsuarios].[PE1]>></span><span class="grid-cell-label">E1</span></div>
+                        <div class="grid-cell"><span id="prim-e2" class="grid-cell-value"><<[EmailUsuarios].[PE2]>></span><span class="grid-cell-label">E2</span></div>
+                        <div class="grid-cell"><span id="prim-e3" class="grid-cell-value"><<[EmailUsuarios].[PE3]>></span><span class="grid-cell-label">E3</span></div>
+                        <div class="grid-cell"><span id="prim-e4" class="grid-cell-value"><<[EmailUsuarios].[PE4]>></span><span class="grid-cell-label">E4</span></div>
+                    </div>
+                </div>
+                <!-- Secundario -->
+                <div class="style-category">
+                    <h4 class="category-title">Secundario</h4>
+                    <div class="grid-2x2">
+                        <div class="grid-cell"><span id="sec-e1" class="grid-cell-value"><<[EmailUsuarios].[SE1]>></span><span class="grid-cell-label">E1</span></div>
+                        <div class="grid-cell"><span id="sec-e2" class="grid-cell-value"><<[EmailUsuarios].[SE2]>></span><span class="grid-cell-label">E2</span></div>
+                        <div class="grid-cell"><span id="sec-e3" class="grid-cell-value"><<[EmailUsuarios].[SE3]>></span><span class="grid-cell-label">E3</span></div>
+                        <div class="grid-cell"><span id="sec-e4" class="grid-cell-value"><<[EmailUsuarios].[SE4]>></span><span class="grid-cell-label">E4</span></div>
+                    </div>
+                </div>
+                <!-- A desarrollar -->
+                <div class="style-category">
+                    <h4 class="category-title">A desarrollar</h4>
+                     <div class="grid-2x2">
+                        <div class="grid-cell"><span id="des-e1" class="grid-cell-value"><<[EmailUsuarios].[DE1]>></span><span class="grid-cell-label">E1</span></div>
+                        <div class="grid-cell"><span id="des-e2" class="grid-cell-value"><<[EmailUsuarios].[DE2]>></span><span class="grid-cell-label">E2</span></div>
+                        <div class="grid-cell"><span id="des-e3" class="grid-cell-value"><<[EmailUsuarios].[DE3]>></span><span class="grid-cell-label">E3</span></div>
+                        <div class="grid-cell"><span id="des-e4" class="grid-cell-value"><<[EmailUsuarios].[DE4]>></span><span class="grid-cell-label">E4</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Eficacia del Estilo -->
+         <section class="chart-section">
+            <h3 class="section-title">Gráfica de la eficacia del estilo</h3>
+            <div class="chart-wrapper">
+                <!-- Eje Y -->
+                <div class="y-axis">
+                    <div class="axis-label-top">Alta<br>80</div>
+                    <div class="axis-label-bottom">Baja<br>20</div>
+                </div>
+                <!-- Área del Gráfico -->
+                <div class="chart-area">
+                    <!-- Franja de Norma -->
+                    <div class="norm-band" style="height: 10%; bottom: 48.33%;"></div>
+                    <!-- Barra de datos -->
+                    <div id="eficacia-barra" class="data-bar">
+                        <span id="eficacia-valor" class="bar-value"><<[EmailUsuarios].[TotalEficacia-inf]>></span>
+                    </div>
+                </div>
+            </div>
+            <div class="legend">
+                <div class="legend-color-box"></div>
+                <span class="legend-text">Norma (49-55)</span>
+            </div>
+        </section>
+        
+        <!-- Cuadrícula Eficacia -->
+        <section class="eficacia-grid-section">
+             <h3 class="section-title">Eficacia del estilo</h3>
+             <div class="grid-2x2 efficacy-grid">
+                <div class="grid-cell"><span id="efic-e1" class="grid-cell-value"><<[EmailUsuarios].[EE1]>></span><span class="grid-cell-label">E1</span></div>
+                <div class="grid-cell"><span id="efic-e2" class="grid-cell-value"><<[EmailUsuarios].[EE2]>></span><span class="grid-cell-label">E2</span></div>
+                <div class="grid-cell"><span id="efic-e3" class="grid-cell-value"><<[EmailUsuarios].[EE3]>></span><span class="grid-cell-label">E3</span></div>
+                <div class="grid-cell"><span id="efic-e4" class="grid-cell-value"><<[EmailUsuarios].[EE4]>></span><span class="grid-cell-label">E4</span></div>
+             </div>
+        </section>
+
+        <!-- Estilos de Liderazgo (Aclaración) -->
+        <section class="clarification-section">
+            <h3 class="section-title">Estilos de liderazgo</h3>
+            <div class="clarification-grid">
+                <div><span class="font-bold text-primary">E1:</span> Dirigir</div>
+                <div><span class="font-bold text-primary">E2:</span> Entrenar</div>
+                <div><span class="font-bold text-primary">E3:</span> Apoyar</div>
+                <div><span class="font-bold text-primary">E4:</span> Delegar</div>
+            </div>
+        </section>
+
+        <!-- Pie de página -->
+        <footer>
+            <p>Desarrollado por CLC Compañía Latinoamericana de Capacitación.</p>
+            <p>Basado en el modelo de Liderazgo Situacional de Paul Hersey y Kenneth Blanchard.</p>
+        </footer>
+    </div>
+
+    <!-- CAMBIO: Se usa una URL absoluta para el archivo JS alojado en GitHub -->
+    <script src="https://TU_USUARIO.github.io/TU_REPOSITORIO/script.js"></script>
+</body>
+</html>
