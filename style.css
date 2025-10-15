@@ -1,277 +1,261 @@
-/* === GENERAL STYLES === */
+/* General Body Styles */
 body {
-    background-color: #f0f2f5;
-    color: #333;
     font-family: 'Inter', sans-serif;
+    color: #333;
+    background-color: #f0f2f5; /* Fondo gris para que la 'hoja' resalte */
     margin: 0;
-    padding: 0;
+    padding: 2rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alinea arriba para documentos largos */
 }
 
+/* Page Container - TAMAÑO OFICIO */
 .main-container {
-    max-width: 800px;
-    margin: 2rem auto;
-    background-color: white;
-    padding: 2.5rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    padding: 2.5cm;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    
+    /* Dimensiones para tamaño Oficio (21.6cm x 33cm) */
+    width: 21.6cm;
+    min-height: 33cm; /* Usamos min-height por si el contenido crece */
+    box-sizing: border-box; 
+}
+
+:root {
+    --primary-color: #00427F;
+    --light-blue: #e0f7fa;
+    --white-color: #ffffff;
+    --gray-color: #f5f5f5;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 1.5rem;
+}
+
+.logo {
+    max-width: 180px;
+    margin-bottom: 1rem;
+}
+
+.main-title {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin: 0.5rem 0;
+}
+
+.subtitle {
+    font-size: 1.4rem;
+    color: #555;
+    font-weight: 400;
+}
+
+/* Participant Info */
+.participant-info {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: var(--gray-color);
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    font-size: 1rem;
 }
 
 .font-bold {
     font-weight: 700;
 }
 
-.text-primary {
-    color: #00427F;
-}
-
-/* === HEADER === */
-header {
-    text-align: center;
-    margin-bottom: 2rem;
-    border-bottom: 1px solid #e5e7eb;
-    padding-bottom: 1rem;
-}
-
-.logo {
-    margin-left: auto;
-    margin-right: auto;
-    height: 4rem;
-    width: auto;
-    margin-bottom: 1rem;
-}
-
-.main-title {
-    font-size: 1.5rem;
-    line-height: 2rem;
-    font-weight: 700;
-    color: #00427F;
-    margin: 0;
-}
-
-.subtitle {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
-    color: #4b5563;
-    margin: 0.25rem 0 0 0;
-}
-
-/* === PARTICIPANT INFO === */
-.participant-info {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 2rem;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-}
-
-/* === CHART SECTION === */
+/* Chart Section */
 .chart-section {
     margin-bottom: 2.5rem;
 }
 
 .section-title {
-    font-size: 1.125rem;
-    line-height: 1.75rem;
-    font-weight: 700;
-    color: #00427F;
-    margin-bottom: 1rem;
     text-align: center;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-weight: 700;
 }
 
 .chart-wrapper {
     display: flex;
-    align-items: flex-end;
+    height: 300px;
+    margin: 0 auto;
+    max-width: 450px;
 }
 
 .y-axis {
     position: relative;
-    font-size: 0.75rem;
-    line-height: 1rem;
-    color: #6b7280;
-    margin-right: 0.5rem;
+    width: 50px;
+    border-right: 2px solid #ccc;
+    font-size: 0.8rem;
     text-align: right;
-    height: 250px;
-    width: 30px;
-    flex-shrink: 0;
 }
 
 .axis-label-top {
     position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
+    top: -10px;
+    right: 5px;
+    text-align: right;
 }
 
 .axis-label-bottom {
     position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 100%;
+    bottom: -10px;
+    right: 5px;
+    text-align: right;
 }
 
 .chart-area {
-    width: 100%;
-    background-color: #f3f4f6;
-    border-radius: 0.375rem;
+    flex-grow: 1;
     position: relative;
-    height: 250px;
-    border-left: 1px solid #d1d5db;
-    border-bottom: 1px solid #d1d5db;
+    border-bottom: 2px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 0 20px;
 }
 
 .norm-band {
     position: absolute;
     width: 100%;
-    background-color: #e0f2fe;
+    background-color: var(--light-blue);
+    left: 0;
 }
 
 .data-bar {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #00427F;
-    border-top-left-radius: 0.375rem;
-    border-top-right-radius: 0.375rem;
+    width: 60%;
+    background-color: var(--primary-color);
+    position: relative;
+    transition: height 1.5s ease-in-out;
     display: flex;
-    align-items: flex-start;
     justify-content: center;
-    padding-top: 0.5rem;
-    width: 50px;
-    transition: height 0.5s ease-in-out;
+    align-items: flex-start;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
 }
 
 .bar-value {
-    color: white;
+    color: var(--white-color);
     font-weight: 700;
-    font-size: 1.125rem;
-    line-height: 1.75rem;
+    padding-top: 8px;
+    font-size: 1rem;
 }
 
 .legend {
     display: flex;
-    align-items: center;
     justify-content: center;
-    margin-top: 0.5rem;
+    align-items: center;
+    margin-top: 1rem;
 }
 
 .legend-color-box {
-    width: 1rem;
-    height: 1rem;
-    border-radius: 0.25rem;
-    background-color: #e0f2fe;
-    margin-right: 0.5rem;
-    border: 1px solid #d1d5db;
+    width: 20px;
+    height: 20px;
+    background-color: var(--light-blue);
+    border: 1px solid #ccc;
+    margin-right: 8px;
+    border-radius: 4px;
 }
 
-.legend-text {
-    font-size: 0.75rem;
-    line-height: 1rem;
-    color: #4b5563;
-}
-
-/* === STYLES & EFFICACY GRIDS === */
+/* Styles Section */
 .styles-section {
     margin-bottom: 2.5rem;
 }
 
 .styles-grid-container {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    display: flex;
+    justify-content: space-around;
     gap: 1.5rem;
 }
 
-@media (min-width: 768px) {
-    .styles-grid-container {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-
 .style-category {
-    margin-left: auto;
-    margin-right: auto;
+    text-align: center;
+    flex: 1;
 }
 
 .category-title {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
     font-weight: 700;
-    text-align: center;
-    margin-bottom: 0.5rem;
 }
 
 .grid-2x2 {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.5rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 8px;
 }
 
 .grid-cell {
-    border: 1px solid #e5e7eb;
-    border-radius: 0.375rem;
-    padding: 0.5rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    min-width: 60px;
+    align-items: center;
+    background-color: var(--gray-color);
+    padding: 0.8rem;
+    border-radius: 6px;
+    min-height: 60px;
 }
 
 .grid-cell-value {
     font-size: 1.5rem;
-    line-height: 2rem;
     font-weight: 700;
-    color: #00427F;
-    height: 2rem;
+    color: var(--primary-color);
+    min-height: 30px;
 }
 
 .grid-cell-label {
-    font-weight: 700;
-    color: #4b5563;
+    font-size: 0.9rem;
+    color: #555;
 }
 
+/* Eficacia Grid Section */
 .eficacia-grid-section {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2.5rem;
 }
 
 .efficacy-grid {
-    max-width: 20rem;
-    margin-left: auto;
-    margin-right: auto;
+    max-width: 400px;
+    margin: 0 auto;
 }
 
-/* === CLARIFICATION & FOOTER === */
+/* Clarification Section */
 .clarification-section {
-    margin-top: 2.5rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid #e5e7eb;
+    margin-bottom: 2.5rem;
+    padding: 1.5rem;
+    background-color: var(--gray-color);
+    border-radius: 8px;
 }
 
 .clarification-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    color: #1f2937;
-    text-align: center;
+    justify-items: center;
+}
+.text-primary {
+    color: var(--primary-color);
 }
 
-@media (min-width: 768px) {
-    .clarification-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
-
+/* Footer */
 footer {
     text-align: center;
-    font-size: 0.75rem;
-    line-height: 1rem;
-    color: #6b7280;
-    padding-top: 1rem;
-    border-top: 1px solid #e5e7eb;
+    font-size: 0.8rem;
+    color: #777;
+    border-top: 1px solid #eee;
+    padding-top: 1.5rem;
     margin-top: 2rem;
 }
 
 footer p {
-    margin: 0;
+    margin: 0.3rem 0;
 }
+
